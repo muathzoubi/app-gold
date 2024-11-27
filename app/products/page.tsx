@@ -43,7 +43,7 @@ export default function ProductGrid() {
       <div className="mb-12">
         <Card className="overflow-hidden">
           <Image
-            src="/placeholder.svg?height=400&width=400"
+            src="/images/1.webp"
             alt="Featured jewelry"
             width={400}
             height={400}
