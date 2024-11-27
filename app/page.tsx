@@ -64,7 +64,7 @@ export default function LandingPage() {
                 <Card key={product} className="overflow-hidden">
                   <div className="relative">
                     <Image
-                      src={`/images/BAN.webp`}
+                      src={`/images/${product}.webp`}
                       alt={`Product ${product}`}
                       width={300}
                       height={300}

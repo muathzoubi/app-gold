@@ -1,14 +1,14 @@
-export const url = "https://rubix-documents.vercel.app";
+export const url = "https://ap.app";
 export const siteicon = "/icon.png";
 
-export const gtm = "GTM-XXXXXXX";
+export const gtm = "a-XXXXXXX";
 export const gtmconnected = true;
 
 export const sitename = "Documents";
-export const description = "This comprehensive documentation template, crafted with Next.js and available as open-source, delivers a sleek and responsive design, tailored to meet all your project documentation requirements.";
-export const keywords = ["Next.js", "documentation", "Rubix Studios", "open source", "SEO"];
-export const urlimage = "/images/og-image.png";
-export const imagealt = "Rubix Studios Documentation";
+export const description = "عرفت الاربش ببيع الذهب في المملكة العربية السعودية على مستوى الخليج منذ عام 1960 اي اكثر من 60 عام بخبرات متوارثه عبر الاجيال على يد مؤسسها حسن عبداللطيف الأربش رقم السجل التجاري 2050107964";
+export const keywords = ["Next.js", "ذهب", "مجوهرات", "الماس", "SEO"];
+export const urlimage = "/images/og-image.webp";
+export const imagealt = "الاربش";
 export const twitterhandle = "@RubixStudios";
 
 export const companyname = "Rubix Studios";
