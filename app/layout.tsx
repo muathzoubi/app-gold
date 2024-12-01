@@ -1,54 +1,31 @@
-import type { Metadata } from "next";
-import { GoogleTagManager } from '@next/third-parties/google'
-import { ThemeProvider } from "@/components/theme-provider";
-import { Settings } from "@/lib/meta";
-import "./globals.css";
+import { IBM_Plex_Sans_Arabic } from 'next/font/google'
+import { cn } from "@/lib/utils"
+import "./globals.css"
 
-const baseUrl = Settings.metadataBase;
+const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
+  subsets: ['arabic'],
+  weight: ['300', '400', '500', '600', '700'],
+})
 
-export const metadata: Metadata = {
-  title: Settings.title,
-  metadataBase: new URL(baseUrl),
-  description: Settings.description,
-  keywords: Settings.keywords,
-  openGraph: {
-    type: Settings.openGraph.type,
-    url: baseUrl,
-    title: Settings.openGraph.title,
-    description: Settings.openGraph.description,
-    siteName: Settings.openGraph.siteName,
-    images: Settings.openGraph.images.map((image) => ({
-      ...image,
-      url: `${baseUrl}${image.url}`,
-    })),
-  },
-  twitter: {
-    card: Settings.twitter.card,
-    title: Settings.twitter.title,
-    description: Settings.twitter.description,
-    site: Settings.twitter.site,
-    images: Settings.twitter.images.map((image) => ({
-      ...image,
-      url: `${baseUrl}${image.url}`,
-    })),
-  },
-  alternates: {
-    canonical: baseUrl,
-  },
-};
+export const metadata = {
+  title: 'تأميني - مقارنة وشراء التأمين بسهولة',
+  description: 'قارن بين عروض التأمين واحصل على أفضل الأسعار من شركات التأمين الرائدة في المملكة العربية السعودية.',
+}
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="ar" suppressHydrationWarning>
-      <body>
-          <main className="arabic h-auto">
-            {children}
-          </main>
+    <html lang="ar" dir="rtl">
+      <body className={cn(
+        "min-h-screen bg-background font-sans antialiased",
+        ibmPlexSansArabic.className
+      )}>
+        {children}
       </body>
     </html>
-  );
+  )
 }
+
