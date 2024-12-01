@@ -4,11 +4,11 @@ export const siteicon = "/icon.png";
 export const gtm = "a-XXXXXXX";
 export const gtmconnected = true;
 
-export const sitename = "الاربش";
-export const description = "عرفت الاربش ببيع الذهب في المملكة العربية السعودية على مستوى الخليج منذ عام 1960 اي اكثر من 60 عام بخبرات متوارثه عبر الاجيال على يد مؤسسها حسن عبداللطيف الأربش رقم السجل التجاري 2050107964";
-export const keywords = ["ذهب", "ذهب", "مجوهرات", "الماس", "SEO"];
+export const sitename = "تأميني";
+export const description = "";
+export const keywords = ["تأمين ضد الغير", "الأخطاء الطبية", "تأمين شامل", "طبي", "سيارات"];
 export const urlimage = "/images/og-image.webp";
-export const imagealt = "الاربش";
+export const imagealt = "تأميني";
 export const twitterhandle = "@RubixStudios";
 
 export const companyname = "Rubix Studios";
