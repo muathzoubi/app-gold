@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { FileText, Car, Building, CarFront, Target } from 'lucide-react'
 import { Progress } from "@/components/ui/progress"
+import Link from "next/link"
 
 export function CarInsuranceForm() {
   const [step, setStep] = useState(1)
@@ -97,10 +98,10 @@ export function CarInsuranceForm() {
               التالي
             </Button>
           ) : (
-         <Link href=
-         '/compare'>   <Button className="mr-auto">
+         <Link href= '/compare'>   <Button className="mr-auto">
               قدم طلبك الآن
-            </Button></Link>
+            </Button>
+            </Link>
           )}
         </div>
       </div>
