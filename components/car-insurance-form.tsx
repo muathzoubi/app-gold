@@ -51,20 +51,6 @@ export function CarInsuranceForm() {
                 className="text-right"
               />
             </Card>
-
-            <Card className="p-4">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="bg-blue-50 p-2 rounded-full">
-                  <Building className="h-5 w-5 text-blue-600" />
-                </div>
-                <span className="font-medium">مدينة القيادة</span>
-              </div>
-              <Input 
-                type="text" 
-                placeholder="اختر المدينة" 
-                className="text-right"
-              />
-            </Card>
           </>
         )}
 
@@ -112,7 +98,7 @@ export function CarInsuranceForm() {
             </Button>
           ) : (
             <Button className="mr-auto">
-              استعلم الآن
+              قدم طلبك الآن
             </Button>
           )}
         </div>

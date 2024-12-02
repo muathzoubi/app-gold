@@ -1,11 +1,6 @@
-import { IBM_Plex_Sans_Arabic } from 'next/font/google'
 import { cn } from "@/lib/utils"
 import "./globals.css"
 
-const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
-  subsets: ['arabic'],
-  weight: ['300', '400', '500', '600', '700'],
-})
 
 export const metadata = {
   title: 'تأميني - مقارنة وشراء التأمين بسهولة',
@@ -20,9 +15,7 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl">
       <body className={cn(
-        "min-h-screen bg-background font-sans antialiased",
-        ibmPlexSansArabic.className
-      )}>
+        "min-h-screen bg-background font-sans antialiased"      )}>
         {children}
       </body>
     </html>
