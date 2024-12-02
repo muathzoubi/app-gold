@@ -1,5 +1,5 @@
 export const url = "https://ap.app";
-export const siteicon = "/icon.svg";
+export const siteicon = "/icon.png";
 
 export const gtm = "a-XXXXXXX";
 export const gtmconnected = true;
