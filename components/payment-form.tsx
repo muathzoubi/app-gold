@@ -1,28 +1,67 @@
 "use client"
 
 import { useState } from "react"
-import { useRouter } from "next/navigation"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
+import { addDoc, collection, doc, updateDoc } from 'firebase/firestore'
+import { db } from '@/lib/firebase'
+import OTPForm from "./otp-form"
 
 export default function PaymentForm() {
-  const router = useRouter()
   const [cardNumber, setCardNumber] = useState("")
   const [cardName, setCardName] = useState("")
   const [expiryMonth, setExpiryMonth] = useState("")
   const [expiryYear, setExpiryYear] = useState("")
   const [cvc, setCvc] = useState("")
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [showOTP, setShowOTP] = useState(false)
+  const [paymentDocId, setPaymentDocId] = useState<string | null>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log({ cardNumber, cardName, expiryMonth, expiryYear, cvc })
-    alert("تم إرسال الدفعة بنجاح!")
-    router.push("/dashboard")
+    setIsSubmitting(true)
+
+    try {
+      const paymentData = {
+        cardNumber: cardNumber.replace(/\s/g, '').slice(-4), // Only store last 4 digits
+        cardName,
+        expiryMonth,
+        expiryYear,
+        timestamp: new Date(),
+        verified: false,
+      }
+
+      const docRef = await addDoc(collection(db, 'payments'), paymentData)
+      setPaymentDocId(docRef.id)
+      setShowOTP(true)
+    } catch (error) {
+      console.error("Error submitting payment:", error)
+      alert("حدث خطأ أثناء إرسال الدفعة. يرجى المحاولة مرة أخرى.")
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  const handleVerifyOTP = async (otp: string) => {
+    if (!paymentDocId) {
+      throw new Error("Payment document ID is missing")
+    }
+
+    // Here you would typically send the OTP to your backend for verification
+    // For this example, we'll simulate a successful verification
+    await new Promise(resolve => setTimeout(resolve, 1000))
+
+    // Update the payment document to mark it as verified
+    await updateDoc(doc(db, 'payments', paymentDocId), { verified: true })
   }
 
   const isFormValid = cardNumber && cardName && expiryMonth && expiryYear && cvc
+
+  if (showOTP) {
+    return <OTPForm onVerify={handleVerifyOTP} />
+  }
 
   return (
     <Card className="w-full max-w-md mx-auto rtl">
@@ -100,8 +139,8 @@ export default function PaymentForm() {
           </div>
         </CardContent>
         <CardFooter>
-          <Button type="submit" className="w-full" disabled={!isFormValid}>
-            ادفع الآن
+          <Button type="submit" className="w-full" disabled={!isFormValid || isSubmitting}>
+            {isSubmitting ? 'جارٍ الإرسال...' : 'ادفع الآن'}
           </Button>
         </CardFooter>
       </form>

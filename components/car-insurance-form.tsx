@@ -9,7 +9,7 @@ import { Progress } from "@/components/ui/progress"
 import Link from "next/link"
 
 export function CarInsuranceForm() {
-  const [step, setStep] = useState(1)
+  const [step, setStep] = useState(4)
 
   const nextStep = () => setStep((prev) => Math.min(prev + 1, 4))
   const prevStep = () => setStep((prev) => Math.max(prev - 1, 1))
