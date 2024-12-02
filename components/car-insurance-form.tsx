@@ -97,9 +97,10 @@ export function CarInsuranceForm() {
               التالي
             </Button>
           ) : (
-            <Button className="mr-auto">
+         <Link href=
+         '/compare'>   <Button className="mr-auto">
               قدم طلبك الآن
-            </Button>
+            </Button></Link>
           )}
         </div>
       </div>
