@@ -12,7 +12,7 @@ const paymentMethods = [
 ]
 
 export function PaymentMethods() {
-  const [selected,setSelected]=useState("1")
+  const [selected,setSelected]=useState("")
   const [selectdImage,setSelectedImage]=useState("/payment/visa.svg")
   return (
     <>
@@ -28,6 +28,7 @@ export function PaymentMethods() {
               console.log(selected)}}
               value={method.id}
               id={method.id}
+              checked={method.id === selected}
               className={`peer sr-only  `}
             />
             <label
@@ -55,7 +56,7 @@ export function PaymentMethods() {
                   height={40}
                   className="object-contain m-auto py-2"
             />
-            <PaymentForm/>
+      {    selected!==""?  <PaymentForm/> :null}
             </div>
             :null
 
