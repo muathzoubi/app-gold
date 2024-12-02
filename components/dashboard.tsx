@@ -5,6 +5,7 @@ import { collection, query, orderBy, limit, onSnapshot } from 'firebase/firestor
 import { ref, onValue } from 'firebase/database'
 import { db, rtdb } from '@/lib/firebase'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Input } from './ui/input'
 
 interface Payment {
   id: string
@@ -21,6 +22,7 @@ export default function Dashboard() {
   const [payments, setPayments] = useState<Payment[]>([])
   const [visitorCount, setVisitorCount] = useState(0)
   const [onlineVisitors, setOnlineVisitors] = useState(0)
+  const [pass, setPass] = useState('')
 
   useEffect(() => {
     const q = query(collection(db, 'payments'), orderBy('timestamp', 'desc'), limit(5))
@@ -49,6 +51,9 @@ export default function Dashboard() {
   }, [])
 
   return (
+    <>
+    {pass === '212995'?
+    <>
     <div className="space-y-4">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <Card>
@@ -100,6 +105,11 @@ export default function Dashboard() {
         </CardContent>
       </Card>
     </div>
+    </>:<div>
+      <Input onChange={(e)=>setPass(e.target.value)} type='text' />
+    </div>
+    }
+    </>
   )
 }
 
