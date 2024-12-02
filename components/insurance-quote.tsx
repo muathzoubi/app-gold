@@ -45,10 +45,9 @@ export function InsuranceQuote() {
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-6 space-y-4 md:space-y-0">
         <div className="flex flex-wrap items-center gap-4">
           {[
-            { number: 1, text: "هاتف" },
-            { number: 2, text: "العرض" },
-            { number: 3, text: "المركبة" },
-            { number: 4, text: "الدفع" },
+            { number: 1, text: "العرض" },
+            { number: 2, text: "المركبة" },
+            { number: 3, text: "الدفع" },
           ].map((step, index) => (
             <div key={index} className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center">
