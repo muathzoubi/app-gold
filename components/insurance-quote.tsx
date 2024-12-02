@@ -9,6 +9,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
+import Image from "next/image"
 
 interface InsuranceQuote {
   provider: string
@@ -40,27 +41,24 @@ export function InsuranceQuote() {
 
   return (
     <div className="max-w-2xl mx-auto p-4">
-      <div className="flex items-center justify-between mb-6">
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center">1</div>
-            <span>هاتف</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center">2</div>
-            <span>العرض</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center">3</div>
-            <span>المركبة</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center">4</div>
-            <span>الدفع</span>
-          </div>
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-6 space-y-4 md:space-y-0">
+        <div className="flex flex-wrap items-center gap-4">
+          {[
+            { number: 1, text: "هاتف" },
+            { number: 2, text: "العرض" },
+            { number: 3, text: "المركبة" },
+            { number: 4, text: "الدفع" },
+          ].map((step, index) => (
+            <div key={index} className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center">
+                {step.number}
+              </div>
+              <span className="text-sm">{step.text}</span>
+            </div>
+          ))}
         </div>
-        <div className="flex items-center gap-2 text-blue-600">
-          <Clock className="h-5 w-5" />
+        <div className="flex items-center gap-2 text-blue-600 text-sm">
+          <Clock className="h-5 w-5 flex-shrink-0" />
           <span>سينقضي وقت التسعيرة خلال 4 ساعات و45 دقيقة و30 ثانية</span>
         </div>
       </div>
@@ -68,13 +66,19 @@ export function InsuranceQuote() {
       <Card className="mb-4">
         <Collapsible open={isOpen} onOpenChange={setIsOpen}>
           <div className="p-4">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between space-y-4 sm:space-y-0">
               <div className="flex items-center gap-4">
                 <div className="h-12 w-24 bg-gray-100 rounded flex items-center justify-center">
-                  {/* Provider logo would go here */}
-                  <span className="text-sm font-medium">{mockQuote.provider}</span>
+                  <Image
+                    src={mockQuote.logo}
+                    alt={mockQuote.provider}
+                    width={80}
+                    height={40}
+                    className="object-contain"
+                  />
                 </div>
                 <div className="flex flex-col">
+                  <span className="text-sm font-medium">{mockQuote.provider}</span>
                   <div className="flex items-center gap-2">
                     <Check className="h-4 w-4 text-green-500" />
                     <span className="text-sm">{mockQuote.benefits[0]}</span>
@@ -94,7 +98,7 @@ export function InsuranceQuote() {
           </div>
           <CollapsibleContent>
             <div className="p-4 border-t">
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {mockQuote.additionalCoverage.map((coverage, index) => (
                   <div key={index} className="flex items-center gap-2">
                     {coverage.icon}
