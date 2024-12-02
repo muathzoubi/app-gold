@@ -107,7 +107,7 @@ export function InsuranceQuote() {
                   </div>
                 ))}
               </div>
-              <Button>   <Link href="/payment" className="w-full mt-4">اختيار</Link></Button>
+              <Link href="/payment" className="w-full mt-4">              <Button>  اختيار</Button></Link>
             </div>
           </CollapsibleContent>
         </Collapsible>
