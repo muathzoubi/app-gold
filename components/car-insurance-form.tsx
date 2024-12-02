@@ -14,7 +14,7 @@ export function CarInsuranceForm() {
   const prevStep = () => setStep((prev) => Math.max(prev - 1, 1))
 
   return (
-    <div className="max-w-md mx-auto p-4">
+    <div className="max-w-md mx-auto p-4" id="form">
       <h2 className="text-xl font-bold text-center mb-6">
         الموقع الأول لمقارنة أسعار التأمين في المملكة
       </h2>
