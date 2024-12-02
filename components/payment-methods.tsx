@@ -17,7 +17,7 @@ export function PaymentMethods() {
   return (
     <>
     <div className="w-full max-w-md mx-auto p-4">
-      <h2 className="text-xl font-bold mb-6 text-center">اختر طريقة الدفع</h2>
+      <h2 className="text-xl font-bold mb-6 text-center font">اختر طريقة الدفع</h2>
       <RadioGroup defaultValue="apple-pay" className="space-y-3">
         {paymentMethods.map((method) => (
           <Card key={method.id} className="overflow-hidden">
@@ -33,7 +33,7 @@ export function PaymentMethods() {
             />
             <label
               htmlFor={method.id}
-              className="flex items-center justify-between p-4 h-16 w-full cursor-pointer transition-colors hover:bg-gray-50 peer-data-[state=checked]:border-primary peer-data-[state=checked]:border-2"
+              className="flex items-center justify-between p-4 h-16 w-full cursor-pointer transition-colors hover:bg-gray-50 peer-data-[state=checked]:border-primary peer-data-[state=checked]:border-2 font"
             >
               <div className="flex items-center justify-between w-full">
                 <Image

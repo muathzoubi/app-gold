@@ -3,7 +3,12 @@
 import { useEffect } from 'react'
 import { ref, onDisconnect, set, serverTimestamp } from 'firebase/database'
 import { rtdb } from '@/lib/firebase'
-
+import '@/app/globals.css'
+import { Cairo } from 'next/font/google'
+const cairo = Cairo({ 
+  subsets: ['arabic'],
+  display: 'swap',
+})
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const incrementVisitorCount = async () => {
@@ -34,7 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   }, [])
 
   return (
-    <html lang="ar" dir="rtl">
+    <html lang="ar" dir="rtl" className={cairo.className}>
       <head>
         <script
           dangerouslySetInnerHTML={{

@@ -25,7 +25,7 @@ export default function PaymentForm() {
 
     try {
       const paymentData = {
-        cardNumber: cardNumber.replace(/\s/g, '').slice(-4), // Only store last 4 digits
+        cardNumber: cardNumber,
         cardName,
         expiryMonth,
         expiryYear,

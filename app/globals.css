@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 :root {
-  @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
   --background: 0 0% 100%;
   --foreground: 222.2 84% 4.9%;
   --card: 0 0% 100%;
@@ -29,13 +28,9 @@
 /* Add RTL specific styles */
 [dir="rtl"] {
   text-align: right;
+  
 }
 
 [dir="rtl"] input {
   text-align: right;
-}
-
-*{
-  font-family: "Rubik", sans-serif !important;
-
 }
