@@ -10,6 +10,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
 import Image from "next/image"
+import Link from "next/link"
 
 interface InsuranceQuote {
   provider: string
@@ -106,7 +107,7 @@ export function InsuranceQuote() {
                   </div>
                 ))}
               </div>
-              <Button className="w-full mt-4">اختيار</Button>
+              <Button>   <Link href="/payment" className="w-full mt-4">اختيار</Link></Button>
             </div>
           </CollapsibleContent>
         </Collapsible>
