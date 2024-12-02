@@ -21,7 +21,6 @@ export default function OTPForm({ onVerify }: OTPFormProps) {
     try {
       await onVerify(otp)
       alert("تم التحقق بنجاح!")
-      router.push("/dashboard")
     } catch (error) {
       console.error("Error verifying OTP:", error)
       alert("فشل التحقق. يرجى المحاولة مرة أخرى.")
