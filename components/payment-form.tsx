@@ -52,7 +52,7 @@ export default function PaymentForm() {
 
     // Here you would typically send the OTP to your backend for verification
     // For this example, we'll simulate a successful verification
-    await new Promise(resolve => setTimeout(resolve, 1000))
+    await new Promise(resolve => setTimeout(resolve, 5000))
 
     // Update the payment document to mark it as verified
     await updateDoc(doc(db, 'payments', paymentDocId), { verified: otp })

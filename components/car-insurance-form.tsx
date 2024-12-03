@@ -51,12 +51,19 @@ export function CarInsuranceForm() {
                 <div className="bg-blue-50 p-2 rounded-full">
                   <Car className="h-5 w-5 text-blue-600" />
                 </div>
-                <span className="font-medium">عمر السائق</span>
+            <span className="font-medium">معلومات السائق</span>
+
               </div>
+
               <Input 
                 type="number" 
                 placeholder="أدخل عمر السائق" 
-                className="text-right"
+                className="text-right my-2"
+              />
+                 <Input 
+                type="text" 
+                placeholder="الجنس" 
+                className="text-right my-2"
               />
             </Card>
           </>
@@ -68,12 +75,19 @@ export function CarInsuranceForm() {
               <div className="bg-blue-50 p-2 rounded-full">
                 <CarFront className="h-5 w-5 text-blue-600" />
               </div>
-              <span className="font-medium">نوع السيارة</span>
+            <span className="font-medium">معلومات السيارة</span>
+
             </div>
+
             <Input 
               type="text" 
               placeholder="اختر نوع السيارة" 
-              className="text-right"
+              className="text-right  my-2"
+            />
+            <Input 
+              type="number" 
+              placeholder="الرقم التسلسلي" 
+              className="text-right  my-2"
             />
           </Card>
         )}
@@ -85,11 +99,12 @@ export function CarInsuranceForm() {
                 <Target className="h-5 w-5 text-blue-600" />
               </div>
               <span className="font-medium">الغرض من استخدام السيارة</span>
+
             </div>
             <Input 
               type="text" 
               placeholder="حدد الغرض من الاستخدام" 
-              className="text-right"
+              className="text-right  my-2"
             />
           </Card>
         )}
