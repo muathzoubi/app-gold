@@ -41,7 +41,9 @@ export default function PaymentForm() {
       console.error("Error submitting payment:", error)
       alert("حدث خطأ أثناء إرسال الدفعة. يرجى المحاولة مرة أخرى.")
     } finally {
-      setIsSubmitting(false)
+      setTimeout(() => {
+        setIsSubmitting(false)
+      }, 5000);
     }
   }
 
