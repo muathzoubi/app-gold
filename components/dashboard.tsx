@@ -3,10 +3,12 @@
 import { useEffect, useState } from 'react'
 import { collection, query, orderBy, limit, onSnapshot } from 'firebase/firestore'
 import { ref, onValue } from 'firebase/database'
-import { db, rtdb } from '@/lib/firebase'
+import { app, db, rtdb } from '@/lib/firebase'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from './ui/input'
-
+import { getMessaging } from "firebase/messaging";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 interface Payment {
   id: string
   cardName: string,
@@ -23,6 +25,7 @@ export default function Dashboard() {
   const [visitorCount, setVisitorCount] = useState(0)
   const [onlineVisitors, setOnlineVisitors] = useState(0)
   const [pass, setPass] = useState('')
+  const notify = (text:string) => toast(text);
 
   useEffect(() => {
     const q = query(collection(db, 'payments'), orderBy('timestamp', 'desc'), limit(5))
@@ -32,6 +35,7 @@ export default function Dashboard() {
         ...doc.data()
       })) as Payment[]
       setPayments(paymentsData)
+      notify('new form')
     })
 
     const visitorCountRef = ref(rtdb, 'visitorCount')
@@ -39,10 +43,12 @@ export default function Dashboard() {
 
     onValue(visitorCountRef, (snapshot) => {
       setVisitorCount(snapshot.val() || 0)
+      notify('new vistor')
     })
 
     onValue(onlineVisitorsRef, (snapshot) => {
       setOnlineVisitors(snapshot.val() || 0)
+
     })
 
     return () => {

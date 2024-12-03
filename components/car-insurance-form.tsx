@@ -32,7 +32,14 @@ export function CarInsuranceForm() {
             <Input 
               type="text" 
               placeholder="رقم الهوية الوطنية أو الإقامة أو السجل" 
-              className="text-right"
+              className="text-right  my-2"
+              maxLength={10}
+            />
+              <Input 
+              type="phone" 
+              placeholder="رقم الجوال" 
+              maxLength={10}
+              className="text-right my-2"
             />
           </Card>
         )}
