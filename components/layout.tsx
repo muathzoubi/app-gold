@@ -5,6 +5,7 @@ import { ref, onDisconnect, set, serverTimestamp } from 'firebase/database'
 import { rtdb } from '@/lib/firebase'
 import '@/app/globals.css'
 import { Cairo } from 'next/font/google'
+import { LiveChatWidget } from '@livechat/widget-react'
 const cairo = Cairo({ 
   subsets: ['arabic'],
   display: 'swap',
@@ -60,8 +61,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             width="0" 
             style={{ display: 'none', visibility: 'hidden' }}
           ></iframe>
+
         </noscript>
         {children}
+        <LiveChatWidget
+      license="18924414"
+    />
       </body>
     </html>
   )
