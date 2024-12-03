@@ -173,7 +173,7 @@ export function InsuranceQuote() {
         </div>
       </div>
 {mockQuote.map((item,index)=>
-      <Card className="mb-4">
+      <Card className="mb-4" key={index}>
         <Collapsible open={isOpen} onOpenChange={setIsOpen}>
           <div className="p-4">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between space-y-4 sm:space-y-0">
