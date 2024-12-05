@@ -37,7 +37,7 @@ export function CarInsuranceForm() {
             />
               <Input 
               type="phone" 
-              placeholder="رقم الجوال" 
+              placeholder="كود الخصم"
               maxLength={10}
               className="text-right my-2"
             />
