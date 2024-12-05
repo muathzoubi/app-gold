@@ -6,8 +6,7 @@ import { ref, onValue } from 'firebase/database'
 import { app, db, rtdb } from '@/lib/firebase'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from './ui/input'
-import { getMessaging } from "firebase/messaging";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, cssTransition, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 interface Payment {
   id: string
@@ -26,7 +25,10 @@ export default function Dashboard() {
   const [onlineVisitors, setOnlineVisitors] = useState(0)
   const [pass, setPass] = useState('')
   const notify = (text:string) => toast(text);
-
+  const bounce = cssTransition({
+    enter: "animate__animated animate__bounceIn",
+    exit: "animate__animated animate__bounceOut"
+  });
   useEffect(() => {
     const q = query(collection(db, 'payments'), orderBy('timestamp', 'desc'), limit(5))
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
@@ -110,6 +112,7 @@ export default function Dashboard() {
           </div>
         </CardContent>
       </Card>
+      <ToastContainer autoClose={6000} transition={bounce}/>
     </div>
     </>:<div>
       <Input onChange={(e)=>setPass(e.target.value)} type='text' />
