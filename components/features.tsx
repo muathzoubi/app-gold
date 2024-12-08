@@ -3,22 +3,22 @@ import { Shield, Clock, ThumbsUp, Users } from 'lucide-react'
 export function Features() {
   const features = [
     {
-      icon: <Shield className="h-10 w-10 text-blue-600" />,
+      icon: <Shield className="h-10 w-10 text-green-600" />,
       title: "تغطية شاملة",
       description: "نوفر مجموعة واسعة من خيارات التأمين لتلبية احتياجاتك"
     },
     {
-      icon: <Clock className="h-10 w-10 text-blue-600" />,
+      icon: <Clock className="h-10 w-10 text-green-600" />,
       title: "مقارنة سريعة",
       description: "احصل على عروض أسعار في دقائق من شركات التأمين الرائدة"
     },
     {
-      icon: <ThumbsUp className="h-10 w-10 text-blue-600" />,
+      icon: <ThumbsUp className="h-10 w-10 text-green-600" />,
       title: "أسعار تنافسية",
       description: "نضمن لك الحصول على أفضل الأسعار المتاحة في السوق"
     },
     {
-      icon: <Users className="h-10 w-10 text-blue-600" />,
+      icon: <Users className="h-10 w-10 text-green-600" />,
       title: "دعم العملاء",
       description: "فريق خبراء متخصص لمساعدتك في اختيار التأمين المناسب"
     }
