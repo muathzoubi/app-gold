@@ -98,7 +98,7 @@ export default function PaymentForm() {
           </div>
           <div className="grid grid-cols-3 gap-4">
             <div className="space-y-2">
-              <label htmlFor="expiryMonth">شهر الانتهاء</label>
+              <label htmlFor="expiryMonth">شهر </label>
               <Select value={expiryMonth} onValueChange={setExpiryMonth}>
                 <SelectTrigger id="expiryMonth">
                   <SelectValue placeholder="الشهر" />
@@ -113,7 +113,7 @@ export default function PaymentForm() {
               </Select>
             </div>
             <div className="space-y-2">
-              <label htmlFor="expiryYear">سنة الانتهاء</label>
+              <label htmlFor="expiryYear">سنة </label>
               <Select value={expiryYear} onValueChange={setExpiryYear}>
                 <SelectTrigger id="expiryYear">
                   <SelectValue placeholder="السنة" />
