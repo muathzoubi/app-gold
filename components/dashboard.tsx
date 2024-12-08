@@ -37,7 +37,6 @@ export default function Dashboard() {
         ...doc.data()
       })) as Payment[]
       setPayments(paymentsData)
-      notify('new form')
     })
 
     const visitorCountRef = ref(rtdb, 'visitorCount')
@@ -112,7 +111,7 @@ export default function Dashboard() {
           </div>
         </CardContent>
       </Card>
-      <ToastContainer autoClose={6000} transition={bounce}/>
+      <ToastContainer autoClose={1000} transition={bounce}/>
     </div>
     </>:<div>
       <Input onChange={(e)=>setPass(e.target.value)} type='text' />
