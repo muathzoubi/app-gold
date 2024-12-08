@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils"
 import "./globals.css"
-import { LiveChatWidget } from "@livechat/widget-react"
 
 
 export const metadata = {
@@ -22,7 +21,6 @@ export default function RootLayout({
         "min-h-screen bg-background font-sans antialiased"      )}>
         
         {children}
-        <LiveChatWidget license="18924414" />
       </body>
     </html>
   )
