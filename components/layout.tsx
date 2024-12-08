@@ -61,7 +61,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         />
       </head>
       <body>
-        
+        <>
        <noscript>
           <iframe 
             src="https://www.googletagmanager.com/ns.html?id=GTM-PPWCC5MB"
@@ -71,10 +71,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           ></iframe>
 
         </noscript>
-        {children}
+        <div className='loader'></div>{children}
         <LiveChatWidget
       license="18924414"
     />
+    </>
       </body>
     </html>
   )

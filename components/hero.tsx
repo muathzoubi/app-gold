@@ -35,6 +35,7 @@ export function Hero() {
                 setIsloading(true)
                 setTimeout(() => {
                   setClicked(false)
+                  setIsloading(false)
                 }, 3000)
               }}>
               {
@@ -56,7 +57,7 @@ export function Hero() {
               <label htmlFor="id-number">رقم الهوية</label>
               <Input id="id-number" placeholder="أدخل رقم الهوية" className="text-right" />
             </div>
-            <div className="space-y-2">
+            <div className="space-y-2 w-full">
               <label htmlFor="birth-date">تاريخ الميلاد</label>
               <Input id="birth-date" type="date" className="text-right" />
             </div>
@@ -81,10 +82,17 @@ export function Hero() {
               <Input id="email" type="number" placeholder="أدخل الرقم التسلسلي" className="text-right" />
             </div>
             <Link href="/compare">
-            <Button className="w-full bg-[#82b440] hover:bg-[#72a030] text-lg">
-            
-              إرسال المعلومات
-            </Button>
+              <Button onClick={() => {
+                setIsloading(true)
+                setTimeout(() => {
+                  setIsloading(false)
+                }, 3000)
+              }} className="w-full bg-[#82b440] hover:bg-[#72a030] text-lg mt-3">
+
+                {
+                  isloading ? ' الرجاء الانتظار ...' : '  التالي'
+                }
+              </Button>
             </Link>
           </CardContent>:
         </CardContent>
