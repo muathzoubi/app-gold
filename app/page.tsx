@@ -10,7 +10,7 @@ export default function HomePage() {
   return (
     <RootLayout>
 <Header/>
-<div className="sec1">
+<div className="sec1 sec2">
       <InsuranceCategories />
 
       <Hero />

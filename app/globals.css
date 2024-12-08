@@ -7,6 +7,16 @@
   font-family: "Tajawal", serif !important;
 
 }
+.sec1{
+  background: url(/images/banner-left.png);
+  background-position:top left ;
+  background-size: contain;
+}
+.sec2{
+  background: url(/images/banner-right.png);
+  background-position:top left ;
+  background-size: contain;
+}
 :root {
   --background: 0 0% 100%;
   --foreground: 222.2 84% 4.9%;
