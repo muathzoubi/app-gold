@@ -5,6 +5,11 @@ import "./globals.css"
 export const metadata = {
   title: 'تأميني - مقارنة وشراء التأمين بسهولة',
   description: 'قارن بين عروض التأمين واحصل على أفضل الأسعار من شركات التأمين الرائدة في المملكة العربية السعودية.',
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    userScalable: false,
+  },
 }
 
 export default function RootLayout({

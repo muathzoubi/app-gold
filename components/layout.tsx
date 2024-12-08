@@ -7,6 +7,7 @@ import '@/app/globals.css'
 import { Cairo } from 'next/font/google'
 import { LiveChatWidget } from '@livechat/widget-react'
 import Script from 'next/script'
+
 const cairo = Cairo({ 
   subsets: ['arabic'],
   display: 'swap',
@@ -39,6 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       set(userStatusOfflineRef, isOfflineForDatabase)
     }
   }, [])
+  
 
   return (
     <html lang="ar" dir="rtl" className={cairo.className}>
